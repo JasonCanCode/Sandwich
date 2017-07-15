@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6042DF565127BD57816B9566 /* Pods_Sandwich.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4412438B757C549E289F44B6 /* Pods_Sandwich.framework */; };
 		B49EF94E1F196FCC0092FAD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF94D1F196FCC0092FAD2 /* AppDelegate.swift */; };
 		B49EF9501F196FCC0092FAD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF94F1F196FCC0092FAD2 /* ViewController.swift */; };
 		B49EF9531F196FCC0092FAD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B49EF9511F196FCC0092FAD2 /* Main.storyboard */; };
 		B49EF9551F196FCC0092FAD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B49EF9541F196FCC0092FAD2 /* Assets.xcassets */; };
 		B49EF9581F196FCC0092FAD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B49EF9561F196FCC0092FAD2 /* LaunchScreen.storyboard */; };
+		B49EF9601F1972F90092FAD2 /* SimpleSandwichFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF95F1F1972F90092FAD2 /* SimpleSandwichFactory.swift */; };
+		B49EF9621F1973200092FAD2 /* SandwichType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF9611F1973200092FAD2 /* SandwichType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4412438B757C549E289F44B6 /* Pods_Sandwich.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sandwich.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		981B76B3B18575DF067A042A /* Pods-Sandwich.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandwich.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich.release.xcconfig"; sourceTree = "<group>"; };
 		B49EF94A1F196FCC0092FAD2 /* Sandwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sandwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49EF94D1F196FCC0092FAD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B49EF94F1F196FCC0092FAD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,10 @@
 		B49EF9541F196FCC0092FAD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B49EF9571F196FCC0092FAD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B49EF9591F196FCC0092FAD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B49EF95F1F1972F90092FAD2 /* SimpleSandwichFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSandwichFactory.swift; sourceTree = "<group>"; };
+		B49EF9611F1973200092FAD2 /* SandwichType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandwichType.swift; sourceTree = "<group>"; };
+		B4C881201F1A85560063B755 /* RxSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwift.playground; sourceTree = "<group>"; };
+		F05A9DFC3768A19E01D51932 /* Pods-Sandwich.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandwich.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +38,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6042DF565127BD57816B9566 /* Pods_Sandwich.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7243F6AE3999817C4FFB9B31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F05A9DFC3768A19E01D51932 /* Pods-Sandwich.debug.xcconfig */,
+				981B76B3B18575DF067A042A /* Pods-Sandwich.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B49EF9411F196FCC0092FAD2 = {
 			isa = PBXGroup;
 			children = (
 				B49EF94C1F196FCC0092FAD2 /* Sandwich */,
 				B49EF94B1F196FCC0092FAD2 /* Products */,
+				7243F6AE3999817C4FFB9B31 /* Pods */,
+				CD1DBD8BA9A698AF7A2E1FB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +75,25 @@
 		B49EF94C1F196FCC0092FAD2 /* Sandwich */ = {
 			isa = PBXGroup;
 			children = (
+				B4C881201F1A85560063B755 /* RxSwift.playground */,
 				B49EF94D1F196FCC0092FAD2 /* AppDelegate.swift */,
 				B49EF94F1F196FCC0092FAD2 /* ViewController.swift */,
+				B49EF95F1F1972F90092FAD2 /* SimpleSandwichFactory.swift */,
+				B49EF9611F1973200092FAD2 /* SandwichType.swift */,
 				B49EF9511F196FCC0092FAD2 /* Main.storyboard */,
 				B49EF9541F196FCC0092FAD2 /* Assets.xcassets */,
 				B49EF9561F196FCC0092FAD2 /* LaunchScreen.storyboard */,
 				B49EF9591F196FCC0092FAD2 /* Info.plist */,
 			);
 			path = Sandwich;
+			sourceTree = "<group>";
+		};
+		CD1DBD8BA9A698AF7A2E1FB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4412438B757C549E289F44B6 /* Pods_Sandwich.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B49EF95C1F196FCC0092FAD2 /* Build configuration list for PBXNativeTarget "Sandwich" */;
 			buildPhases = (
+				AF4B5C7B361A9AE1BA31C5E6 /* [CP] Check Pods Manifest.lock */,
 				B49EF9461F196FCC0092FAD2 /* Sources */,
 				B49EF9471F196FCC0092FAD2 /* Frameworks */,
 				B49EF9481F196FCC0092FAD2 /* Resources */,
+				BDA5812A6F4F0140D6AC8002 /* [CP] Embed Pods Frameworks */,
+				EDDB7C1F33CD4157E0FC6780 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,11 +167,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AF4B5C7B361A9AE1BA31C5E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDA5812A6F4F0140D6AC8002 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDDB7C1F33CD4157E0FC6780 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B49EF9461F196FCC0092FAD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B49EF9621F1973200092FAD2 /* SandwichType.swift in Sources */,
+				B49EF9601F1972F90092FAD2 /* SimpleSandwichFactory.swift in Sources */,
 				B49EF9501F196FCC0092FAD2 /* ViewController.swift in Sources */,
 				B49EF94E1F196FCC0092FAD2 /* AppDelegate.swift in Sources */,
 			);
@@ -259,6 +344,7 @@
 		};
 		B49EF95D1F196FCC0092FAD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F05A9DFC3768A19E01D51932 /* Pods-Sandwich.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 74CF28R6R2;
@@ -272,6 +358,7 @@
 		};
 		B49EF95E1F196FCC0092FAD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 981B76B3B18575DF067A042A /* Pods-Sandwich.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 74CF28R6R2;
@@ -302,6 +389,7 @@
 				B49EF95E1F196FCC0092FAD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
