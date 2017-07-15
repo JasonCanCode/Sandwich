@@ -1,4 +1,4 @@
-//: [Previous](@previous)
+//: [⬅️](@previous)
 
 import RxSwift
 
@@ -16,4 +16,4 @@ example(of: "dispose") {
     subscription.dispose()
 }
 
-//: [Next](@next)
+//: [➡️](@next)

@@ -1,4 +1,4 @@
-//: [Previous](@previous)
+//: [⬅️](@previous)
 
 import RxSwift
 
@@ -33,4 +33,4 @@ example(of: "create") {
         .addDisposableTo(disposeBag)
 }
 
-//: [Next](@next)
+//: [➡️](@next)

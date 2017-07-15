@@ -1,5 +1,7 @@
-//: [Previous](@previous)
-
+//: [⬅️](@previous)
+/*:
+_Don't forget to build the scheme first_
+*/
 import RxSwift
 
 example(of: "subscribe") {
@@ -15,4 +17,4 @@ example(of: "subscribe") {
     })
 }
 
-//: [Next](@next)
+//: [➡️](@next)

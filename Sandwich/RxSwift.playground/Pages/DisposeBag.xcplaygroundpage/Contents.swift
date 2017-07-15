@@ -1,4 +1,4 @@
-//: [Previous](@previous)
+//: [⬅️](@previous)
 
 import RxSwift
 
@@ -15,4 +15,4 @@ example(of: "DisposeBag") {
         .addDisposableTo(disposeBag) // 4
 }
 
-//: [Next](@next)
+//: [➡️](@next)

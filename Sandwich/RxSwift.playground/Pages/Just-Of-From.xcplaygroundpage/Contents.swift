@@ -1,4 +1,4 @@
-//: [Previous](@previous)
+//: [⬅️](@previous)
 
 import RxSwift
 
@@ -41,4 +41,4 @@ example(of: "just, of, from") {
     })
 }
 
-//: [Next](@next)
+//: [➡️](@next)

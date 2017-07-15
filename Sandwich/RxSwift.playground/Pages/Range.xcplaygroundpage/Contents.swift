@@ -1,4 +1,4 @@
-//: [Previous](@previous)
+//: [⬅️](@previous)
 
 import Foundation
 
@@ -16,4 +16,4 @@ example(of: "range") {
         })
 }
 
-//: [Next](@next)
+//: [➡️](@next)

@@ -1,4 +1,4 @@
-//: [Previous](@previous)
+//: [⬅️](@previous)
 
 import RxSwift
 
@@ -34,4 +34,4 @@ example(of: "deferred") {
     
 }
 
-//: [Next](@next)
+//: [➡️](@next)
