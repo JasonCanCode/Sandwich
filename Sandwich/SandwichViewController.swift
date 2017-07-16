@@ -13,18 +13,6 @@ private let kFadeInDuration: TimeInterval = 1.0
 
 class SandwichViewController: UIViewController {
     fileprivate let disposeBag = DisposeBag()
-
-    let testImages = [
-        #imageLiteral(resourceName: "cheese"),
-        #imageLiteral(resourceName: "egg"),
-        #imageLiteral(resourceName: "cucumber"),
-        #imageLiteral(resourceName: "ham"),
-        #imageLiteral(resourceName: "jelly"),
-        #imageLiteral(resourceName: "lettuce"),
-        #imageLiteral(resourceName: "peanut_butter"),
-        #imageLiteral(resourceName: "tomato_slice")
-    ]
-
     fileprivate var ingImages: [UIImage] = []
 
     func configure(withIngredientImages images: [UIImage]) {
@@ -33,12 +21,6 @@ class SandwichViewController: UIViewController {
         allImages.append(#imageLiteral(resourceName: "bread"))
 
         ingImages = allImages
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        configure(withIngredientImages: testImages)
     }
 
     override func viewDidAppear(_ animated: Bool) {
