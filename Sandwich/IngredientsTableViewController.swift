@@ -11,10 +11,10 @@ import UIKit
 class IngredientsTableViewController: UITableViewController {
     let ingredients = Demo.ingredients
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        self.clearsSelectionOnViewWillAppear = false
+        tableView.reloadData()
         updateMakeButton()
     }
 
