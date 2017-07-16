@@ -18,7 +18,7 @@ class IngredientsTableViewController: UITableViewController {
         updateMakeButton()
     }
 
-    private func updateMakeButton() {
+    fileprivate func updateMakeButton() {
         navigationItem.rightBarButtonItem?.isEnabled = tableView.indexPathsForSelectedRows?.isEmpty == false
     }
 
@@ -30,8 +30,10 @@ class IngredientsTableViewController: UITableViewController {
         let images = selectedIndredients.flatMap { UIImage(named: $0.image) } // FIXME: needs VM
         sandwichVC.configure(withIngredientImages: images)
     }
+}
 
-    // MARK: - Table view data source
+// MARK: - Table view data source
+extension IngredientsTableViewController{
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -66,7 +68,7 @@ class IngredientsTableViewController: UITableViewController {
         updateMakeButton()
     }
 
-    private func getSelectedIngredients() -> [Ingredient]? {
+    fileprivate func getSelectedIngredients() -> [Ingredient]? {
         guard let selectedRows = tableView.indexPathsForSelectedRows?.map({ $0.row }),
             !selectedRows.isEmpty else {
                 return nil
