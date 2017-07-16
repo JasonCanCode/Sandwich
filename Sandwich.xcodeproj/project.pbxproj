@@ -15,6 +15,7 @@
 		B49EF9581F196FCC0092FAD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B49EF9561F196FCC0092FAD2 /* LaunchScreen.storyboard */; };
 		B49EF9601F1972F90092FAD2 /* SimpleSandwichFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF95F1F1972F90092FAD2 /* SimpleSandwichFactory.swift */; };
 		B49EF9621F1973200092FAD2 /* SandwichType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF9611F1973200092FAD2 /* SandwichType.swift */; };
+		B4C881221F1B08A30063B755 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C881211F1B08A30063B755 /* AlertHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B49EF95F1F1972F90092FAD2 /* SimpleSandwichFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSandwichFactory.swift; sourceTree = "<group>"; };
 		B49EF9611F1973200092FAD2 /* SandwichType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandwichType.swift; sourceTree = "<group>"; };
 		B4C881201F1A85560063B755 /* RxSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwift.playground; sourceTree = "<group>"; };
+		B4C881211F1B08A30063B755 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		F05A9DFC3768A19E01D51932 /* Pods-Sandwich.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandwich.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,12 +82,21 @@
 				B49EF94F1F196FCC0092FAD2 /* ViewController.swift */,
 				B49EF95F1F1972F90092FAD2 /* SimpleSandwichFactory.swift */,
 				B49EF9611F1973200092FAD2 /* SandwichType.swift */,
+				B4C881231F1B08B00063B755 /* Supporting Files */,
 				B49EF9511F196FCC0092FAD2 /* Main.storyboard */,
-				B49EF9541F196FCC0092FAD2 /* Assets.xcassets */,
 				B49EF9561F196FCC0092FAD2 /* LaunchScreen.storyboard */,
-				B49EF9591F196FCC0092FAD2 /* Info.plist */,
 			);
 			path = Sandwich;
+			sourceTree = "<group>";
+		};
+		B4C881231F1B08B00063B755 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4C881211F1B08A30063B755 /* AlertHelper.swift */,
+				B49EF9591F196FCC0092FAD2 /* Info.plist */,
+				B49EF9541F196FCC0092FAD2 /* Assets.xcassets */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		CD1DBD8BA9A698AF7A2E1FB4 /* Frameworks */ = {
@@ -223,6 +234,7 @@
 				B49EF9621F1973200092FAD2 /* SandwichType.swift in Sources */,
 				B49EF9601F1972F90092FAD2 /* SimpleSandwichFactory.swift in Sources */,
 				B49EF9501F196FCC0092FAD2 /* ViewController.swift in Sources */,
+				B4C881221F1B08A30063B755 /* AlertHelper.swift in Sources */,
 				B49EF94E1F196FCC0092FAD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
