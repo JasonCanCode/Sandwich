@@ -28,4 +28,16 @@ struct Demo {
         // TODO: Make async
         return ingredients
     }
+
+    /// For loading SandwichVC from start
+    static let testImages: [UIImage] = [
+        #imageLiteral(resourceName: "cheese"),
+        #imageLiteral(resourceName: "egg"),
+        #imageLiteral(resourceName: "cucumber"),
+        #imageLiteral(resourceName: "ham"),
+        #imageLiteral(resourceName: "jelly"),
+        #imageLiteral(resourceName: "lettuce"),
+        #imageLiteral(resourceName: "peanut_butter"),
+        #imageLiteral(resourceName: "tomato_slice")
+    ]
 }

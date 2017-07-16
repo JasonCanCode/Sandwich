@@ -14,17 +14,21 @@ class IngredientsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//        let applyButton = UIBarButtonItem(
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.clearsSelectionOnViewWillAppear = false
+        updateMakeButton()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func updateMakeButton() {
+        navigationItem.rightBarButtonItem?.isEnabled = tableView.indexPathsForSelectedRows?.isEmpty == false
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let sandwichVC = segue.destination as? SandwichViewController,
+            let selectedIndredients = getSelectedIngredients() else {
+                return
+        }
+        let images = selectedIndredients.flatMap { UIImage(named: $0.image) } // FIXME: needs VM
+        sandwichVC.configure(withIngredientImages: images)
     }
 
     // MARK: - Table view data source
@@ -34,7 +38,6 @@ class IngredientsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return ingredients.count
     }
 
@@ -43,7 +46,7 @@ class IngredientsTableViewController: UITableViewController {
         let ingredient = ingredients[indexPath.row]
 
         cell.textLabel?.text = ingredient.name
-        cell.imageView?.image = UIImage(named: ingredient.image)
+        cell.imageView?.image = UIImage(named: ingredient.image) // FIXME: needs VM
         cell.imageView?.contentMode = .scaleAspectFit
 
         return cell
@@ -52,21 +55,24 @@ class IngredientsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
+
+        updateMakeButton()
     }
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .none
+
+        updateMakeButton()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func getSelectedIngredients() -> [Ingredient]? {
+        guard let selectedRows = tableView.indexPathsForSelectedRows?.map({ $0.row }),
+            !selectedRows.isEmpty else {
+                return nil
+        }
+        let selectedIngredients = selectedRows.map { self.ingredients[$0] }
+        return selectedIngredients
     }
-    */
-
+    
 }

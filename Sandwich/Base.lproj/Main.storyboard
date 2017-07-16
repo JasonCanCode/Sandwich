@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w03-hA-7S8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3jl-De-5aC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Select Ingredients-->
         <scene sceneID="n5i-uV-jf8">
             <objects>
                 <tableViewController storyboardIdentifier="IngredientsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="reX-Od-wMo" customClass="IngredientsTableViewController" customModule="Sandwich" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,27 +45,17 @@
                             <outlet property="delegate" destination="reX-Od-wMo" id="Ety-oJ-vwG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="6PM-hM-ETW"/>
+                    <navigationItem key="navigationItem" title="Select Ingredients" id="6PM-hM-ETW">
+                        <barButtonItem key="rightBarButtonItem" title="Make It" id="wA8-Pw-coa">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="showSandwichVC" id="Da8-Sy-ENf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWD-fN-zro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1148" y="560"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="dqy-K0-fw4">
-            <objects>
-                <navigationController id="w03-hA-7S8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wXs-r9-thS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="reX-Od-wMo" kind="relationship" relationship="rootViewController" id="ADA-fl-5Qp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TCy-Ir-7S1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2102" y="560"/>
+            <point key="canvasLocation" x="-208.80000000000001" y="559.97001499250382"/>
         </scene>
         <!--Sandwich View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -83,7 +73,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-241" y="560"/>
+            <point key="canvasLocation" x="696.79999999999995" y="559.97001499250382"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z4q-dd-DEl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3jl-De-5aC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cwY-s5-JJR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="reX-Od-wMo" kind="relationship" relationship="rootViewController" id="1Zl-5k-SwJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="37E-qo-0d8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1148" y="559.97001499250382"/>
         </scene>
     </scenes>
     <resources>
