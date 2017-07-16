@@ -45,11 +45,12 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
 
         assembleSandwichOneAtATime() {
-            AlertHelper.showSingleButtonAlert(in: self, title: "Eat Up", message: "Your sandwich is made")
+            self.finishSandwich()
         }
     }
 
-    func assembleThatSandwich() {
+    // [1]
+    func assembleSandwich() {
         let observable = Observable<UIImage>.from(ingImages)
 
         observable.subscribe(onNext: { img in
@@ -85,6 +86,10 @@ class ViewController: UIViewController {
 
         superview.setNeedsUpdateConstraints()
     }
+
+    func finishSandwich() {
+        AlertHelper.showSingleButtonAlert(in: self, title: "Eat Up", message: "Your sandwich is made")
+    }
 }
 
 
@@ -105,7 +110,7 @@ class ViewController: UIViewController {
 
 
 extension ViewController {
-
+    // [2]
     func assembleSandwichOneAtATime(completion: @escaping (Void) -> Void) {
         let ingredientObs = ingImages.map { self.observableForIngredientAddition(withImage: $0) }
         Observable.from(ingredientObs)
@@ -150,7 +155,7 @@ extension ViewController {
 
 
 extension ViewController {
-
+    // [3]
     func assembleSandwichOneAtATime() {
         let ingredientObs = ingImages.map { self.observableForIngredientAddition(withImage: $0) }
         Observable.from(ingredientObs)
@@ -158,6 +163,41 @@ extension ViewController {
             .publish()
             .connect()
             .addDisposableTo(disposeBag)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+extension ViewController {
+    // [4]
+    func assembleSandwichOneAtATime(with ingredients: [UIImage], completion: @escaping (Void) -> Void) {
+        guard !ingredients.isEmpty else {
+            return
+        }
+        var remainingIngredients = ingredients
+        let nextImageToShow = remainingIngredients.removeFirst()
+        let ingView = self.ingredientView(withImage: nextImageToShow)
+        self.addIngredient(view: ingView, to: self.view)
+
+        UIView.animate(withDuration: kFadeInDuration, animations: {
+            ingView.alpha = 1
+        }, completion: { _ in
+            if !remainingIngredients.isEmpty {
+                self.assembleSandwichOneAtATime(with: remainingIngredients) { completion() }
+            } else {
+                completion()
+            }
+        })
     }
 }
 
