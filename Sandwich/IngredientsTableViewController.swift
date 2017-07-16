@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct IngredientCellModel {
+    let name: String
+    let image: UIImage
+    
+}
+
 class IngredientsTableViewController: UITableViewController {
     let ingredients = Demo.ingredients
 
