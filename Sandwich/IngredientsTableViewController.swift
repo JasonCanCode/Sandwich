@@ -7,9 +7,19 @@
 //
 
 import UIKit
+import RxSwift
 
-class IngredientsTableViewController: UITableViewController {
-    let cellVMs: [IngredientCellModel] = Demo.ingredients.map { IngredientCellModel(ingredient: $0) }
+class IngredientsTableViewController: UITableViewController, LoadingOverlayDisplayable {
+    var loadingOverlayView: LoadingOverlayView?
+    let disposeBag = DisposeBag()
+    var cellVMs: [IngredientCellModel] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        addLoadingOverlay()
+        updateIngredients()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -20,6 +30,25 @@ class IngredientsTableViewController: UITableViewController {
 
     fileprivate func updateMakeButton() {
         navigationItem.rightBarButtonItem?.isEnabled = tableView.indexPathsForSelectedRows?.isEmpty == false
+    }
+
+    private func updateIngredients() {
+        updateLoadingSpinner(isLoading: true)
+
+        NetworkManager.fetchIngredients()
+            .subscribe(onNext: { ingredients in
+                self.updateViewModels(with: ingredients)
+            }, onError: { error in
+                self.updateViewModels(with: [])
+                AlertHelper.showAlert(for: error, in: self)
+            }, onDisposed: {
+                self.updateLoadingSpinner(isLoading: false)
+                self.tableView.reloadData()
+            }).addDisposableTo(disposeBag)
+    }
+
+    private func updateViewModels(with ingredients: [Ingredient]) {
+        cellVMs = ingredients.map { IngredientCellModel(ingredient: $0) }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

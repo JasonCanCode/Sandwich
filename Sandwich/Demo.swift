@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 struct Demo {
     static var ingredients: [Ingredient] {
@@ -23,12 +24,6 @@ struct Demo {
         return matchingTitleAndImageNames.map { Ingredient(name: $0, image: $0) }
     }
 
-    /// To simulate a network layer
-    static func fetchIngredients() -> [Ingredient] {
-        // TODO: Make async
-        return ingredients
-    }
-
     /// For loading SandwichVC from start
     static let testImages: [UIImage] = [
         #imageLiteral(resourceName: "cheese"),
@@ -40,4 +35,36 @@ struct Demo {
         #imageLiteral(resourceName: "peanut_butter"),
         #imageLiteral(resourceName: "tomato_slice")
     ]
+}
+
+// MARK: Network Mocking
+
+enum NetworkError: Error {
+    case invalidPath
+}
+
+typealias NetworkManager = Demo
+
+extension Demo {
+    /// To simulate a network layer
+    static func fetchIngredients() -> Observable<[Ingredient]> {
+        return simulateFetch(of: ingredients, delay: 2.5)
+    }
+
+    static func retrieveImage(withPath pretendPath: String) -> Observable<UIImage> {
+        guard let image = UIImage(named: pretendPath) else {
+            return Observable.error(NetworkError.invalidPath)
+        }
+        return simulateFetch(of: image, delay: 0.75)
+    }
+
+    private static func simulateFetch<T>(of element: T, delay: TimeInterval) -> Observable<T> {
+        return Observable.create { observer in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+                observer.onNext(element)
+                observer.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
 }
