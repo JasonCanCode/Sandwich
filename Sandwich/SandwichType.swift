@@ -13,36 +13,63 @@ enum CraftingError: Error {
 }
 
 enum SandwichType {
-    case ham, veggie, breakfast, pbj, cheese
+    case    ham,
+            veggie,
+            breakfast,
+            pbj,
+            cheese
 
-    static func craft(from ingredients: [String]) throws -> SandwichType {
-
-        if ingredients.contains("cheese") {
-            return craftCheeseSandwich(from: ingredients)
-        } else if ingredients.contains("lettuce"),
-            ingredients.contains("tomato"),
-            ingredients.contains("egg") {
-
-            return .breakfast
-        } else if ingredients.contains("peanut_butter"),
-            ingredients.contains("jelly") {
-
-            return .pbj
+    var ingredientNames: [String] {
+        switch self {
+        case .ham:
+            return [
+                "cheese",
+                "ham",
+                "lettuce",
+                "tomato_slice"
+            ]
+        case .veggie:
+            return [
+                "cucumber",
+                "lettuce",
+                "tomato_slice"
+            ]
+        case .breakfast:
+            return [
+                "cheese",
+                "egg",
+                "lettuce",
+                "tomato_slice"
+            ]
+        case .pbj:
+            return [
+                "jelly",
+                "peanut_butter"
+            ]
+        case .cheese:
+            return [
+                "cheese"
+            ]
         }
-        throw CraftingError.invalidIngredients
+
     }
 
-    private static func craftCheeseSandwich(from ingredients: [String]) -> SandwichType {
-        if ingredients.contains("lettuce"),
-            ingredients.contains("tomato") {
+    private func isCorrectIngredients(_ ingredients: [Ingredient]) -> Bool {
+        let ingredientNames = ingredients.map { $0.name }
+        return Set(self.ingredientNames).symmetricDifference(Set(ingredientNames)).isEmpty
+    }
 
-            if ingredients.contains("ham") {
-                return .ham
-            } else if ingredients.contains("cucumber") {
-                return .veggie
-            }
+    static func craft(from ingredients: [Ingredient]) throws -> SandwichType {
+        let sandwichTypes: [SandwichType] = [.ham,
+                                             .veggie,
+                                             .breakfast,
+                                             .pbj,
+                                             .cheese]
+
+        if let matchingType = sandwichTypes.lazy.filter({ $0.isCorrectIngredients(ingredients) }).first {
+            return matchingType
+        } else {
+            throw CraftingError.invalidIngredients
         }
-        
-        return .cheese
     }
 }
