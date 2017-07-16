@@ -15,7 +15,7 @@ class SandwichViewController: UIViewController {
     fileprivate let disposeBag = DisposeBag()
 
     let testImages = [
-        #imageLiteral(resourceName: "cheese_level"),
+        #imageLiteral(resourceName: "cheese"),
         #imageLiteral(resourceName: "egg"),
         #imageLiteral(resourceName: "cucumber"),
         #imageLiteral(resourceName: "ham"),
