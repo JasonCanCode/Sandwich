@@ -15,10 +15,11 @@ class IngredientsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+//        let applyButton = UIBarButtonItem(
+//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +47,16 @@ class IngredientsTableViewController: UITableViewController {
         cell.imageView?.contentMode = .scaleAspectFit
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
+    }
+
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .none
     }
 
     /*
