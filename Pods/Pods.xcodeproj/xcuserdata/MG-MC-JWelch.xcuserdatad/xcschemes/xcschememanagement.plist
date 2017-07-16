@@ -19,20 +19,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIImageColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E9352F57391A531EEF1816FBA62FE84</key>
+		<key>3B8E3AA029C2621E46D97302113E445A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>876E76E12A199BD31B276B36EF0D9334</key>
+		<key>5EECB34C53D493B15A64875586B07599</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF5A2B27B47B57673EBB94DB25C08659</key>
+		<key>D1A21D686C4D126C78E7B6FE7F2E644D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC4CE0D7DDA89C2CBF9B30249B23DFAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
