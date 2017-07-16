@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SandwichViewController.swift
 //  Sandwich
 //
 //  Created by Jason Welch on 7/14/17.
@@ -11,8 +11,8 @@ import RxSwift
 
 private let kFadeInDuration: TimeInterval = 1.0
 
-class ViewController: UIViewController {
-    let disposeBag = DisposeBag()
+class SandwichViewController: UIViewController {
+    fileprivate let disposeBag = DisposeBag()
 
     let testImages = [
         #imageLiteral(resourceName: "cheese_level"),
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         #imageLiteral(resourceName: "tomato_slice")
     ]
 
-    var ingImages: [UIImage] = []
+    fileprivate var ingImages: [UIImage] = []
 
     func configure(withIngredientImages images: [UIImage]) {
         var allImages = [#imageLiteral(resourceName: "bread")]
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     }
 
     // [1]
-    func assembleSandwich() {
+    fileprivate func assembleSandwich() {
         let observable = Observable<UIImage>.from(ingImages)
 
         observable.subscribe(onNext: { img in
@@ -63,20 +63,20 @@ class ViewController: UIViewController {
         }).addDisposableTo(disposeBag)
     }
 
-    func ingredientView(withImage image: UIImage) -> UIView {
+    fileprivate func ingredientView(withImage image: UIImage) -> UIView {
         let ingImageView = UIImageView(image: image)
         ingImageView.contentMode = .scaleToFill
         
         return ingImageView
     }
 
-    func addIngredient(view ingView: UIView, to superview: UIView) {
+    fileprivate func addIngredient(view ingView: UIView, to superview: UIView) {
         ingView.alpha = 0
         superview.addSubview(ingView)
         sizeAndCenter(view: ingView, in: self.view)
     }
 
-    func sizeAndCenter(view subview: UIView, in superview: UIView) {
+    fileprivate func sizeAndCenter(view subview: UIView, in superview: UIView) {
         subview.translatesAutoresizingMaskIntoConstraints = false
 
         subview.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
         superview.setNeedsUpdateConstraints()
     }
 
-    func finishSandwich() {
+    fileprivate func finishSandwich() {
         AlertHelper.showSingleButtonAlert(in: self, title: "Eat Up", message: "Your sandwich is made")
     }
 }
@@ -109,9 +109,9 @@ class ViewController: UIViewController {
 
 
 
-extension ViewController {
+extension SandwichViewController {
     // [2]
-    func assembleSandwichOneAtATime(completion: @escaping (Void) -> Void) {
+    fileprivate func assembleSandwichOneAtATime(completion: @escaping (Void) -> Void) {
         let ingredientObs = ingImages.map { self.observableForIngredientAddition(withImage: $0) }
         Observable.from(ingredientObs)
             .concat()
@@ -121,7 +121,7 @@ extension ViewController {
             .addDisposableTo(disposeBag)
     }
 
-    func observableForIngredientAddition(withImage image: UIImage) -> Observable<Void> {
+    fileprivate func observableForIngredientAddition(withImage image: UIImage) -> Observable<Void> {
         let ingView = self.ingredientView(withImage: image)
         addIngredient(view: ingView, to: view)
 
@@ -154,9 +154,9 @@ extension ViewController {
 
 
 
-extension ViewController {
+extension SandwichViewController {
     // [3]
-    func assembleSandwichOneAtATime() {
+    fileprivate func assembleSandwichOneAtATime() {
         let ingredientObs = ingImages.map { self.observableForIngredientAddition(withImage: $0) }
         Observable.from(ingredientObs)
             .concat()
@@ -178,9 +178,9 @@ extension ViewController {
 
 
 
-extension ViewController {
+extension SandwichViewController {
     // [4]
-    func assembleSandwichOneAtATime(with ingredients: [UIImage], completion: @escaping (Void) -> Void) {
+    fileprivate func assembleSandwichOneAtATime(with ingredients: [UIImage], completion: @escaping (Void) -> Void) {
         guard !ingredients.isEmpty else {
             return
         }

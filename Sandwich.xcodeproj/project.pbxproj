@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6042DF565127BD57816B9566 /* Pods_Sandwich.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4412438B757C549E289F44B6 /* Pods_Sandwich.framework */; };
 		B49EF94E1F196FCC0092FAD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF94D1F196FCC0092FAD2 /* AppDelegate.swift */; };
-		B49EF9501F196FCC0092FAD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF94F1F196FCC0092FAD2 /* ViewController.swift */; };
+		B49EF9501F196FCC0092FAD2 /* SandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49EF94F1F196FCC0092FAD2 /* SandwichViewController.swift */; };
 		B49EF9531F196FCC0092FAD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B49EF9511F196FCC0092FAD2 /* Main.storyboard */; };
 		B49EF9551F196FCC0092FAD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B49EF9541F196FCC0092FAD2 /* Assets.xcassets */; };
 		B49EF9581F196FCC0092FAD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B49EF9561F196FCC0092FAD2 /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		981B76B3B18575DF067A042A /* Pods-Sandwich.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandwich.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich.release.xcconfig"; sourceTree = "<group>"; };
 		B49EF94A1F196FCC0092FAD2 /* Sandwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sandwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49EF94D1F196FCC0092FAD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B49EF94F1F196FCC0092FAD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B49EF94F1F196FCC0092FAD2 /* SandwichViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichViewController.swift; sourceTree = "<group>"; };
 		B49EF9521F196FCC0092FAD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B49EF9541F196FCC0092FAD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B49EF9571F196FCC0092FAD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 			children = (
 				B4C881201F1A85560063B755 /* RxSwift.playground */,
 				B49EF94D1F196FCC0092FAD2 /* AppDelegate.swift */,
-				B49EF94F1F196FCC0092FAD2 /* ViewController.swift */,
+				B49EF94F1F196FCC0092FAD2 /* SandwichViewController.swift */,
 				B49EF95F1F1972F90092FAD2 /* SimpleSandwichFactory.swift */,
 				B49EF9611F1973200092FAD2 /* SandwichType.swift */,
 				B4C881231F1B08B00063B755 /* Supporting Files */,
@@ -233,7 +233,7 @@
 			files = (
 				B49EF9621F1973200092FAD2 /* SandwichType.swift in Sources */,
 				B49EF9601F1972F90092FAD2 /* SimpleSandwichFactory.swift in Sources */,
-				B49EF9501F196FCC0092FAD2 /* ViewController.swift in Sources */,
+				B49EF9501F196FCC0092FAD2 /* SandwichViewController.swift in Sources */,
 				B4C881221F1B08A30063B755 /* AlertHelper.swift in Sources */,
 				B49EF94E1F196FCC0092FAD2 /* AppDelegate.swift in Sources */,
 			);
