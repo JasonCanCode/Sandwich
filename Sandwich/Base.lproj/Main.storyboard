@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,26 +19,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ingredientCell" textLabel="MLD-9C-xeT" imageView="WAe-ea-UZ6" style="IBUITableViewCellStyleDefault" id="axO-NM-UXp">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ingredientCell" rowHeight="70" id="axO-NM-UXp" customClass="IngredientTableViewCell" customModule="Sandwich" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="axO-NM-UXp" id="ofY-76-4p6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MLD-9C-xeT">
-                                            <rect key="frame" x="72" y="0.0" width="288" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bread" translatesAutoresizingMaskIntoConstraints="NO" id="moO-ns-9TU">
+                                            <rect key="frame" x="8" y="0.0" width="69.5" height="69.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="moO-ns-9TU" secondAttribute="height" id="Da2-ov-75k"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n35-xr-cRe">
+                                            <rect key="frame" x="89.5" y="8" width="216" height="53.5"/>
+                                            <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bread" id="WAe-ea-UZ6">
-                                            <rect key="frame" x="15" y="0.0" width="42" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="lM1-C8-KZn">
+                                            <rect key="frame" x="313.5" y="8" width="53.5" height="53.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="lM1-C8-KZn" secondAttribute="height" id="LnC-Mk-WMO"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="moO-ns-9TU" secondAttribute="bottom" id="2UL-gu-s71"/>
+                                        <constraint firstAttribute="trailing" secondItem="lM1-C8-KZn" secondAttribute="trailing" constant="8" id="K8c-Fs-4of"/>
+                                        <constraint firstItem="moO-ns-9TU" firstAttribute="leading" secondItem="ofY-76-4p6" secondAttribute="leading" constant="8" id="QEW-aD-jwl"/>
+                                        <constraint firstItem="lM1-C8-KZn" firstAttribute="leading" secondItem="n35-xr-cRe" secondAttribute="trailing" constant="8" id="Us0-bh-SZb"/>
+                                        <constraint firstAttribute="bottom" secondItem="lM1-C8-KZn" secondAttribute="bottom" constant="8" id="ZUF-3A-18R"/>
+                                        <constraint firstItem="n35-xr-cRe" firstAttribute="top" secondItem="ofY-76-4p6" secondAttribute="top" constant="8" id="aoN-37-8Cc"/>
+                                        <constraint firstItem="lM1-C8-KZn" firstAttribute="top" secondItem="ofY-76-4p6" secondAttribute="top" constant="8" id="k8H-TI-Dog"/>
+                                        <constraint firstItem="n35-xr-cRe" firstAttribute="leading" secondItem="moO-ns-9TU" secondAttribute="trailing" constant="12" id="qt9-nE-kcH"/>
+                                        <constraint firstItem="moO-ns-9TU" firstAttribute="top" secondItem="ofY-76-4p6" secondAttribute="top" id="qw8-K8-38h"/>
+                                        <constraint firstAttribute="bottom" secondItem="n35-xr-cRe" secondAttribute="bottom" constant="8" id="yaV-2J-zIU"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkImageView" destination="lM1-C8-KZn" id="H5T-eF-tO4"/>
+                                    <outlet property="nameLabel" destination="n35-xr-cRe" id="GOb-LC-G7v"/>
+                                    <outlet property="thumbnailImageView" destination="moO-ns-9TU" id="U30-Yf-Ufi"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -96,5 +121,6 @@
     </scenes>
     <resources>
         <image name="bread" width="261" height="272"/>
+        <image name="check" width="80" height="80"/>
     </resources>
 </document>

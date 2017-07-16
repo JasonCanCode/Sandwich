@@ -44,27 +44,20 @@ extension IngredientsTableViewController{
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as! IngredientTableViewCell
         let ingredient = ingredients[indexPath.row]
 
-        cell.textLabel?.text = ingredient.name
-        cell.imageView?.image = UIImage(named: ingredient.image) // FIXME: needs VM
-        cell.imageView?.contentMode = .scaleAspectFit
+        cell.nameLabel.text = ingredient.name
+        cell.thumbnailImageView.image = UIImage(named: ingredient.image) // FIXME: needs VM
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .checkmark
-
         updateMakeButton()
     }
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .none
-
         updateMakeButton()
     }
 
