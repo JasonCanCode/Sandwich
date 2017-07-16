@@ -91,7 +91,6 @@
 				B49EF95F1F1972F90092FAD2 /* SimpleSandwichFactory.swift */,
 				B49EF9611F1973200092FAD2 /* SandwichType.swift */,
 				B4C881261F1BABDD0063B755 /* Ingredient.swift */,
-				B4C8812A1F1BB8790063B755 /* Demo.swift */,
 				B4C881231F1B08B00063B755 /* Supporting Files */,
 			);
 			path = Sandwich;
@@ -102,6 +101,7 @@
 			children = (
 				B4C881201F1A85560063B755 /* RxSwift.playground */,
 				B4C881211F1B08A30063B755 /* AlertHelper.swift */,
+				B4C8812A1F1BB8790063B755 /* Demo.swift */,
 				B49EF9591F196FCC0092FAD2 /* Info.plist */,
 				B49EF9541F196FCC0092FAD2 /* Assets.xcassets */,
 			);
