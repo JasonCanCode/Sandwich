@@ -8,14 +8,8 @@
 
 import UIKit
 
-struct IngredientCellModel {
-    let name: String
-    let image: UIImage
-    
-}
-
 class IngredientsTableViewController: UITableViewController {
-    let ingredients = Demo.ingredients
+    let cellVMs: [IngredientCellModel] = Demo.ingredients.map { IngredientCellModel(ingredient: $0) }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,11 +24,10 @@ class IngredientsTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let sandwichVC = segue.destination as? SandwichViewController,
-            let selectedIndredients = getSelectedIngredients() else {
+            let selectedIngredientImages = getSelectedIngredientImages() else {
                 return
         }
-        let images = selectedIndredients.flatMap { UIImage(named: $0.image) } // FIXME: needs VM
-        sandwichVC.configure(withIngredientImages: images)
+        sandwichVC.configure(withIngredientImages: selectedIngredientImages)
     }
 }
 
@@ -46,15 +39,16 @@ extension IngredientsTableViewController{
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingredients.count
+        return cellVMs.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as! IngredientTableViewCell
-        let ingredient = ingredients[indexPath.row]
+        let viewModel = cellVMs[indexPath.row]
 
-        cell.nameLabel.text = ingredient.name
-        cell.thumbnailImageView.image = UIImage(named: ingredient.image) // FIXME: needs VM
+        cell.nameLabel.text = viewModel.name
+        cell.nameLabel.textColor = viewModel.textColor
+        cell.thumbnailImageView.image = viewModel.image
 
         return cell
     }
@@ -67,12 +61,12 @@ extension IngredientsTableViewController{
         updateMakeButton()
     }
 
-    fileprivate func getSelectedIngredients() -> [Ingredient]? {
+    fileprivate func getSelectedIngredientImages() -> [UIImage]? {
         guard let selectedRows = tableView.indexPathsForSelectedRows?.map({ $0.row }),
             !selectedRows.isEmpty else {
                 return nil
         }
-        let selectedIngredients = selectedRows.map { self.ingredients[$0] }
+        let selectedIngredients = selectedRows.map { self.cellVMs[$0].image }
         return selectedIngredients
     }
     

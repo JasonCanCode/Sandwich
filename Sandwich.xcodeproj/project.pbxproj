@@ -19,6 +19,7 @@
 		B4C881271F1BABDD0063B755 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C881261F1BABDD0063B755 /* Ingredient.swift */; };
 		B4C8812B1F1BB8790063B755 /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8812A1F1BB8790063B755 /* Demo.swift */; };
 		B4C8812D1F1BE9470063B755 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8812C1F1BE9470063B755 /* IngredientTableViewCell.swift */; };
+		B4C8812F1F1BF6560063B755 /* IngredientCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8812E1F1BF6560063B755 /* IngredientCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B4C881261F1BABDD0063B755 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		B4C8812A1F1BB8790063B755 /* Demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		B4C8812C1F1BE9470063B755 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		B4C8812E1F1BF6560063B755 /* IngredientCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCellModel.swift; sourceTree = "<group>"; };
 		F05A9DFC3768A19E01D51932 /* Pods-Sandwich.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandwich.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				B49EF9561F196FCC0092FAD2 /* LaunchScreen.storyboard */,
 				B49EF9511F196FCC0092FAD2 /* Main.storyboard */,
 				B4C881241F1BA9DD0063B755 /* IngredientsTableViewController.swift */,
+				B4C8812E1F1BF6560063B755 /* IngredientCellModel.swift */,
 				B4C8812C1F1BE9470063B755 /* IngredientTableViewCell.swift */,
 				B49EF94F1F196FCC0092FAD2 /* SandwichViewController.swift */,
 				B49EF9611F1973200092FAD2 /* SandwichType.swift */,
@@ -246,6 +249,7 @@
 				B49EF9501F196FCC0092FAD2 /* SandwichViewController.swift in Sources */,
 				B4C8812D1F1BE9470063B755 /* IngredientTableViewCell.swift in Sources */,
 				B4C881221F1B08A30063B755 /* AlertHelper.swift in Sources */,
+				B4C8812F1F1BF6560063B755 /* IngredientCellModel.swift in Sources */,
 				B4C881251F1BA9DD0063B755 /* IngredientsTableViewController.swift in Sources */,
 				B49EF94E1F196FCC0092FAD2 /* AppDelegate.swift in Sources */,
 			);
