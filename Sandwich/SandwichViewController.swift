@@ -12,6 +12,8 @@ import RxSwift
 private let kFadeInDuration: TimeInterval = 1.0
 
 class SandwichViewController: UIViewController {
+    @IBOutlet weak var plateView: UIView!
+
     fileprivate let disposeBag = DisposeBag()
     fileprivate var ingImages: [UIImage] = []
 
@@ -37,7 +39,7 @@ class SandwichViewController: UIViewController {
 
         observable.subscribe(onNext: { img in
             let ingView = self.ingredientView(withImage: img)
-            self.addIngredient(view: ingView, to: self.view)
+            self.addIngredient(view: ingView, to: self.plateView)
 
             UIView.animate(withDuration: kFadeInDuration) {
                 ingView.alpha = 1
@@ -55,7 +57,7 @@ class SandwichViewController: UIViewController {
     fileprivate func addIngredient(view ingView: UIView, to superview: UIView) {
         ingView.alpha = 0
         superview.addSubview(ingView)
-        sizeAndCenter(view: ingView, in: self.view)
+        sizeAndCenter(view: ingView, in: superview)
     }
 
     fileprivate func sizeAndCenter(view subview: UIView, in superview: UIView) {
@@ -105,7 +107,7 @@ extension SandwichViewController {
 
     fileprivate func observableForIngredientAddition(withImage image: UIImage) -> Observable<Void> {
         let ingView = self.ingredientView(withImage: image)
-        addIngredient(view: ingView, to: view)
+        addIngredient(view: ingView, to: plateView)
 
         return Observable.create { observer in
             UIView.animate(withDuration: kFadeInDuration, animations: {
@@ -169,7 +171,7 @@ extension SandwichViewController {
         var remainingIngredients = ingredients
         let nextImageToShow = remainingIngredients.removeFirst()
         let ingView = self.ingredientView(withImage: nextImageToShow)
-        self.addIngredient(view: ingView, to: self.view)
+        self.addIngredient(view: ingView, to: plateView)
 
         UIView.animate(withDuration: kFadeInDuration, animations: {
             ingView.alpha = 1

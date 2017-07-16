@@ -93,8 +93,42 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tablecloth" translatesAutoresizingMaskIntoConstraints="NO" id="wZ4-bX-voT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spX-em-w9H" userLabel="Plate View">
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plate" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-wt-hI8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NF7-wt-hI8" secondAttribute="trailing" id="40y-hH-Spm"/>
+                                    <constraint firstItem="NF7-wt-hI8" firstAttribute="leading" secondItem="spX-em-w9H" secondAttribute="leading" id="KgW-12-bdV"/>
+                                    <constraint firstItem="NF7-wt-hI8" firstAttribute="top" secondItem="spX-em-w9H" secondAttribute="top" id="P1n-IS-er2"/>
+                                    <constraint firstAttribute="bottom" secondItem="NF7-wt-hI8" secondAttribute="bottom" id="QfS-Pb-deN"/>
+                                    <constraint firstAttribute="width" secondItem="spX-em-w9H" secondAttribute="height" id="aRQ-4c-rNX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="spX-em-w9H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5jd-ij-eUq"/>
+                            <constraint firstItem="wZ4-bX-voT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DsI-zG-af1"/>
+                            <constraint firstItem="spX-em-w9H" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JEK-bT-VGl"/>
+                            <constraint firstAttribute="trailing" secondItem="spX-em-w9H" secondAttribute="trailing" id="VZm-Qo-sc6"/>
+                            <constraint firstItem="spX-em-w9H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bTt-Rw-ryb"/>
+                            <constraint firstItem="wZ4-bX-voT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="efN-k9-9Hr"/>
+                            <constraint firstAttribute="trailing" secondItem="wZ4-bX-voT" secondAttribute="trailing" id="qAf-0q-Xfm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wZ4-bX-voT" secondAttribute="bottom" id="wwW-M3-8dT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="plateView" destination="spX-em-w9H" id="VFo-iU-d4F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,5 +156,7 @@
     <resources>
         <image name="bread" width="261" height="272"/>
         <image name="check" width="80" height="80"/>
+        <image name="plate" width="1026" height="1026"/>
+        <image name="tablecloth" width="1280" height="1920"/>
     </resources>
 </document>
