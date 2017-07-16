@@ -35,8 +35,8 @@ struct SimpleSandwichFactory {
         if ingredients.contains("lettuce"),
             ingredients.contains("tomato") {
 
-            if ingredients.contains("bologna") {
-                return .bologna
+            if ingredients.contains("ham") {
+                return .ham
             } else if ingredients.contains("cucumber") {
                 return .veggie
             }
