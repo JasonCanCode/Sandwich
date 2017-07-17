@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='Introduction'/>
+        <page name='Skills'/>
+        <page name='Science'/>
+        <page name='Team'/>
+        <page name='Wireframes'/>
+        <page name='Designs'/>
+        <page name='Engineering'/>
+        <page name='Template'/>
+    </pages>
+</playground>

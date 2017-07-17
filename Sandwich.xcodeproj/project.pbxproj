@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		4412438B757C549E289F44B6 /* Pods_Sandwich.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sandwich.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		981B76B3B18575DF067A042A /* Pods-Sandwich.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandwich.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich.release.xcconfig"; sourceTree = "<group>"; };
+		B468D1F71F1CF6D700E6ACC1 /* MobileDev.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MobileDev.playground; sourceTree = "<group>"; };
 		B49EF94A1F196FCC0092FAD2 /* Sandwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sandwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49EF94D1F196FCC0092FAD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B49EF94F1F196FCC0092FAD2 /* SandwichViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				B4C881201F1A85560063B755 /* RxSwift.playground */,
+				B468D1F71F1CF6D700E6ACC1 /* MobileDev.playground */,
 				B4C881211F1B08A30063B755 /* AlertHelper.swift */,
 				B4C8812A1F1BB8790063B755 /* Demo.swift */,
 				B49EF9591F196FCC0092FAD2 /* Info.plist */,
