@@ -73,10 +73,13 @@
                     <navigationItem key="navigationItem" title="Select Ingredients" id="6PM-hM-ETW">
                         <barButtonItem key="rightBarButtonItem" title="Make It" id="wA8-Pw-coa">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="showSandwichVC" id="Da8-Sy-ENf"/>
+                                <action selector="makeItButtonPressed:" destination="reX-Od-wMo" id="HW9-L3-otB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showSandwichVC" id="2Bp-NB-zEc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWD-fN-zro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

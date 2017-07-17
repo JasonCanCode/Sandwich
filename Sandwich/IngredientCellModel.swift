@@ -12,8 +12,10 @@ struct IngredientCellModel {
     let name: String
     let image: UIImage
     let textColor: UIColor
+    let entity: Ingredient
 
     init(ingredient: Ingredient) {
+        self.entity = ingredient
         self.name = IngredientCellModel.properName(from: ingredient.name)
         let image = UIImage(named: ingredient.image)!
         self.image = image
