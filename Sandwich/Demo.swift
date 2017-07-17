@@ -35,6 +35,8 @@ struct Demo {
         #imageLiteral(resourceName: "peanut_butter"),
         #imageLiteral(resourceName: "tomato_slice")
     ]
+
+    fileprivate static var imageDelay: TimeInterval = 0.5
 }
 
 // MARK: Network Mocking
@@ -55,7 +57,8 @@ extension Demo {
         guard let image = UIImage(named: pretendPath) else {
             return Observable.error(NetworkError.invalidPath)
         }
-        return simulateFetch(of: image, delay: 0.75)
+        imageDelay += 0.08
+        return simulateFetch(of: image, delay: imageDelay)
     }
 
     private static func simulateFetch<T>(of element: T, delay: TimeInterval) -> Observable<T> {

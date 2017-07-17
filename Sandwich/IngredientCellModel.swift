@@ -7,17 +7,19 @@
 //
 
 import UIImageColors
+import RxSwift
 
 struct IngredientCellModel {
     let name: String
-    let image: UIImage
     let textColor: UIColor
+    let thumbnailImage = Variable<UIImage?>(nil)
+    let imagePath: String
 
     init(ingredient: Ingredient) {
         self.name = IngredientCellModel.properName(from: ingredient.name)
         let image = UIImage(named: ingredient.image)!
-        self.image = image
         textColor = image.getColors().primaryColor
+        self.imagePath = ingredient.image
     }
 
     private static func properName(from rawName: String) -> String {

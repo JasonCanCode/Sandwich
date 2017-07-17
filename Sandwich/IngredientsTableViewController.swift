@@ -73,11 +73,15 @@ extension IngredientsTableViewController{
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as! IngredientTableViewCell
-        let viewModel = cellVMs[indexPath.row]
+        let cellViewModel = cellVMs[indexPath.row]
+        cell.configure(with: cellViewModel)
 
-        cell.nameLabel.text = viewModel.name
-        cell.nameLabel.textColor = viewModel.textColor
-        cell.thumbnailImageView.image = viewModel.image
+        NetworkManager.retrieveImage(withPath: cellViewModel.imagePath)
+            .subscribe(onNext: { image in
+                cellViewModel.thumbnailImage.value = image
+            })
+//            .bind(to: cellViewModel.thumbnailImage)
+            .addDisposableTo(disposeBag)
 
         return cell
     }
@@ -95,7 +99,7 @@ extension IngredientsTableViewController{
             !selectedRows.isEmpty else {
                 return nil
         }
-        let selectedIngredients = selectedRows.map { self.cellVMs[$0].image }
+        let selectedIngredients = selectedRows.flatMap { self.cellVMs[$0].thumbnailImage.value }
         return selectedIngredients
     }
     
