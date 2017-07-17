@@ -12,9 +12,9 @@ protocol LoadingOverlayDisplayable: class {
     var loadingOverlayView: LoadingOverlayView? { get set }
 }
 
-extension LoadingOverlayDisplayable where Self: UIViewController {
+extension LoadingOverlayDisplayable {
 
-    func addLoadingOverlay() {
+    func addLoadingOverlay(to view: UIView) {
         let loadingOverlayView = LoadingOverlayView(frame: view.frame)
         view.addSubview(loadingOverlayView)
 
@@ -33,6 +33,13 @@ extension LoadingOverlayDisplayable where Self: UIViewController {
         } else {
             loadingOverlayView?.end()
         }
+    }
+}
+
+extension LoadingOverlayDisplayable where Self: UIViewController {
+    
+    func addLoadingOverlay() {
+        addLoadingOverlay(to: view)
     }
 }
 

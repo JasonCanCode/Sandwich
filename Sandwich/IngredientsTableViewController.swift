@@ -17,7 +17,7 @@ class IngredientsTableViewController: UITableViewController, LoadingOverlayDispl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addLoadingOverlay()
+        addLoadingOverlay(to: navigationController!.view)
         updateIngredients()
     }
 
