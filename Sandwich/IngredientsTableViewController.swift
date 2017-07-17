@@ -8,6 +8,9 @@
 
 import UIKit
 
+private let kCellIdentifier = "ingredientCell"
+private let kSegueIdentifier = "showSandwichVC"
+
 class IngredientsTableViewController: UITableViewController {
     let cellVMs: [IngredientCellModel] = Demo.ingredients.map { IngredientCellModel(ingredient: $0) }
 
@@ -22,9 +25,22 @@ class IngredientsTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem?.isEnabled = tableView.indexPathsForSelectedRows?.isEmpty == false
     }
 
+    @IBAction func makeItButtonPressed(_ sender: UIBarButtonItem) {
+        if let selectedIngredients = getSelectedIngredients(),
+            let sandwichType = try? SandwichType.craft(from: selectedIngredients),
+            let selectedIngredientImages = getSelectedIngredientImages() {
+
+            AlertHelper.showSingleButtonAlert(in: self, title: nil, message: "Get ready to enjoy a delicious \(sandwichType.title) sandwich", completion: {
+                self.performSegue(withIdentifier: kSegueIdentifier, sender: selectedIngredientImages)
+            })
+        } else {
+            AlertHelper.showSingleButtonAlert(in: self, title: "Gross", message: "Those ingredients to not make a valid sandwich. Please select a less disguisting combination.")
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let sandwichVC = segue.destination as? SandwichViewController,
-            let selectedIngredientImages = getSelectedIngredientImages() else {
+            let selectedIngredientImages = sender as? [UIImage] else {
                 return
         }
         sandwichVC.configure(withIngredientImages: selectedIngredientImages)
@@ -43,7 +59,7 @@ extension IngredientsTableViewController{
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as! IngredientTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier, for: indexPath) as! IngredientTableViewCell
         let viewModel = cellVMs[indexPath.row]
 
         cell.nameLabel.text = viewModel.name
@@ -59,6 +75,15 @@ extension IngredientsTableViewController{
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         updateMakeButton()
+    }
+
+    fileprivate func getSelectedIngredients() -> [Ingredient]? {
+        guard let selectedRows = tableView.indexPathsForSelectedRows?.map({ $0.row }),
+            !selectedRows.isEmpty else {
+                return nil
+        }
+        let selectedIngredients = selectedRows.map { self.cellVMs[$0].entity }
+        return selectedIngredients
     }
 
     fileprivate func getSelectedIngredientImages() -> [UIImage]? {

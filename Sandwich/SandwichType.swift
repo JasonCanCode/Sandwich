@@ -19,6 +19,21 @@ enum SandwichType {
             pbj,
             cheese
 
+    var title: String {
+        switch self {
+        case .ham:
+            return "Ham"
+        case .veggie:
+            return "Veggie"
+        case .breakfast:
+            return "Breakfast"
+        case .pbj:
+            return "Peanut Butter and Jelly"
+        case .cheese:
+            return "Cheese"
+        }
+    }
+
     var ingredientNames: [String] {
         switch self {
         case .ham:
@@ -51,7 +66,6 @@ enum SandwichType {
                 "cheese"
             ]
         }
-
     }
 
     private func isCorrectIngredients(_ ingredients: [Ingredient]) -> Bool {
