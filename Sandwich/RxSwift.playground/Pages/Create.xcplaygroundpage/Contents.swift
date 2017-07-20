@@ -2,6 +2,11 @@
 
 import RxSwift
 
+/*:
+ Custom Observables
+ ======
+ */
+
 example(of: "create") {
 
     enum MyError: Error {
@@ -11,17 +16,11 @@ example(of: "create") {
     let disposeBag = DisposeBag()
 
     Observable<String>.create { observer in
-        // 1
         observer.onNext("1")
-        //observer.onError(MyError.anError)
-
-        // 2
-        //observer.onCompleted()
-
-        // 3
+//        observer.onError(MyError.anError)
+//        observer.onCompleted()
         observer.onNext("?")
 
-        // 4
         return Disposables.create()
         }
         .subscribe(

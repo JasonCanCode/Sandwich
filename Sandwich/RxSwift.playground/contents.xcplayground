@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered' executeOnSourceChanges='false' last-migration='0800'>
+<playground version='6.0' target-platform='ios' display-mode='rendered' last-migration='0800'>
     <pages>
         <page name='Introduction'/>
+        <page name='MVVM'/>
+        <page name='First-Impressions'/>
+        <page name='Reactive'/>
+        <page name='Starting_RxSwift'/>
+        <page name='Observables'/>
         <page name='Subscribe'/>
-        <page name='Empty'/>
-        <page name='Never'/>
-        <page name='Range'/>
         <page name='Dispose'/>
         <page name='DisposeBag'/>
         <page name='Just-Of-From'/>
         <page name='Create'/>
-        <page name='Deferred'/>
+        <page name='Range'/>
+        <page name='Demo'/>
+        <page name='MVVM-Revisited'/>
         <page name='Template'/>
     </pages>
 </playground>

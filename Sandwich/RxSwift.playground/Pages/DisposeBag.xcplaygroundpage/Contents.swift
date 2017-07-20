@@ -1,18 +1,17 @@
 //: [⬅️](@previous)
-
 import RxSwift
+/*:
+ Use a Bag
+ ======
+ */
 
 example(of: "DisposeBag") {
-
-    // 1
     let disposeBag = DisposeBag()
 
-    // 2
     Observable.of("A", "B", "C")
         .subscribe { // 3
             print($0)
-        }
-        .addDisposableTo(disposeBag) // 4
+        }.addDisposableTo(disposeBag)
 }
 
 //: [➡️](@next)
