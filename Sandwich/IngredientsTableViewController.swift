@@ -7,9 +7,19 @@
 //
 
 import UIKit
+import RxSwift
 
-class IngredientsTableViewController: UITableViewController {
-    let cellVMs: [IngredientCellModel] = Demo.ingredients.map { IngredientCellModel(ingredient: $0) }
+class IngredientsTableViewController: UITableViewController, LoadingOverlayDisplayable {
+    var loadingOverlayView: LoadingOverlayView?
+    let disposeBag = DisposeBag()
+    var cellVMs: [IngredientCellModel] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        addLoadingOverlay(to: navigationController!.view)
+        updateIngredients()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -20,6 +30,25 @@ class IngredientsTableViewController: UITableViewController {
 
     fileprivate func updateMakeButton() {
         navigationItem.rightBarButtonItem?.isEnabled = tableView.indexPathsForSelectedRows?.isEmpty == false
+    }
+
+    private func updateIngredients() {
+        updateLoadingSpinner(isLoading: true)
+
+        NetworkManager.fetchIngredients()
+            .subscribe(onNext: { ingredients in
+                self.updateViewModels(with: ingredients)
+            }, onError: { error in
+                self.updateViewModels(with: [])
+                AlertHelper.showAlert(for: error, in: self)
+            }, onDisposed: {
+                self.updateLoadingSpinner(isLoading: false)
+                self.tableView.reloadData()
+            }).addDisposableTo(disposeBag)
+    }
+
+    private func updateViewModels(with ingredients: [Ingredient]) {
+        cellVMs = ingredients.map { IngredientCellModel(ingredient: $0) }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,11 +73,15 @@ extension IngredientsTableViewController{
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as! IngredientTableViewCell
-        let viewModel = cellVMs[indexPath.row]
+        let cellViewModel = cellVMs[indexPath.row]
+        cell.configure(with: cellViewModel)
 
-        cell.nameLabel.text = viewModel.name
-        cell.nameLabel.textColor = viewModel.textColor
-        cell.thumbnailImageView.image = viewModel.image
+        NetworkManager.retrieveImage(withPath: cellViewModel.imagePath)
+            .subscribe(onNext: { image in
+                cellViewModel.thumbnailImage.value = image
+            })
+//            .bind(to: cellViewModel.thumbnailImage)
+            .addDisposableTo(disposeBag)
 
         return cell
     }
@@ -66,7 +99,7 @@ extension IngredientsTableViewController{
             !selectedRows.isEmpty else {
                 return nil
         }
-        let selectedIngredients = selectedRows.map { self.cellVMs[$0].image }
+        let selectedIngredients = selectedRows.flatMap { self.cellVMs[$0].thumbnailImage.value }
         return selectedIngredients
     }
     

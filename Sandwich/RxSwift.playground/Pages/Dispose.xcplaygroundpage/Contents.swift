@@ -1,16 +1,15 @@
 //: [⬅️](@previous)
-
 import RxSwift
+/*:
+ Disposable
+ ======
+ */
 
 example(of: "dispose") {
 
-    // 1
     let observable = Observable.of("A", "B", "C")
 
-    // 2
-    let subscription = observable.subscribe { event in
-
-        // 3
+    let subscription: Disposable = observable.subscribe { event in
         print(event)
     }
     subscription.dispose()

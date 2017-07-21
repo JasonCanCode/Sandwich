@@ -20,6 +20,7 @@
 		B4C8812B1F1BB8790063B755 /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8812A1F1BB8790063B755 /* Demo.swift */; };
 		B4C8812D1F1BE9470063B755 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8812C1F1BE9470063B755 /* IngredientTableViewCell.swift */; };
 		B4C8812F1F1BF6560063B755 /* IngredientCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8812E1F1BF6560063B755 /* IngredientCellModel.swift */; };
+		B4C881331F1C2AC40063B755 /* LoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C881321F1C2AC40063B755 /* LoadingOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		B4C8812A1F1BB8790063B755 /* Demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		B4C8812C1F1BE9470063B755 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		B4C8812E1F1BF6560063B755 /* IngredientCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientCellModel.swift; sourceTree = "<group>"; };
+		B4C881321F1C2AC40063B755 /* LoadingOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlayView.swift; sourceTree = "<group>"; };
 		F05A9DFC3768A19E01D51932 /* Pods-Sandwich.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandwich.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sandwich/Pods-Sandwich.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				B468D1F71F1CF6D700E6ACC1 /* MobileDev.playground */,
 				B4C881211F1B08A30063B755 /* AlertHelper.swift */,
 				B4C8812A1F1BB8790063B755 /* Demo.swift */,
+				B4C881321F1C2AC40063B755 /* LoadingOverlayView.swift */,
 				B49EF9591F196FCC0092FAD2 /* Info.plist */,
 				B49EF9541F196FCC0092FAD2 /* Assets.xcassets */,
 			);
@@ -247,6 +250,7 @@
 			files = (
 				B49EF9621F1973200092FAD2 /* SandwichType.swift in Sources */,
 				B4C8812B1F1BB8790063B755 /* Demo.swift in Sources */,
+				B4C881331F1C2AC40063B755 /* LoadingOverlayView.swift in Sources */,
 				B4C881271F1BABDD0063B755 /* Ingredient.swift in Sources */,
 				B49EF9501F196FCC0092FAD2 /* SandwichViewController.swift in Sources */,
 				B4C8812D1F1BE9470063B755 /* IngredientTableViewCell.swift in Sources */,
@@ -320,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -364,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
