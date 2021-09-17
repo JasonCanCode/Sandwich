@@ -44,7 +44,7 @@ class IngredientsTableViewController: UITableViewController, LoadingOverlayDispl
             }, onDisposed: {
                 self.updateLoadingSpinner(isLoading: false)
                 self.tableView.reloadData()
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
     }
 
     private func updateViewModels(with ingredients: [Ingredient]) {
@@ -78,10 +78,10 @@ extension IngredientsTableViewController{
 
         NetworkManager.retrieveImage(withPath: cellViewModel.imagePath)
             .subscribe(onNext: { image in
-                cellViewModel.thumbnailImage.value = image
+                cellViewModel.thumbnailImage.accept(image)
             })
 //            .bind(to: cellViewModel.thumbnailImage)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         return cell
     }
@@ -99,7 +99,7 @@ extension IngredientsTableViewController{
             !selectedRows.isEmpty else {
                 return nil
         }
-        let selectedIngredients = selectedRows.flatMap { self.cellVMs[$0].thumbnailImage.value }
+        let selectedIngredients = selectedRows.compactMap { self.cellVMs[$0].thumbnailImage.value }
         return selectedIngredients
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LoadingOverlayDisplayable: class {
+protocol LoadingOverlayDisplayable: AnyObject {
     var loadingOverlayView: LoadingOverlayView? { get set }
 }
 
@@ -71,7 +71,7 @@ class LoadingOverlayView: UIView {
         dimmerView.alpha = 0.4
         addSubview(dimmerView)
 
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let indicator = UIActivityIndicatorView(style: .large)
         indicator.startAnimating()
         addSubview(indicator)
 
@@ -88,7 +88,7 @@ class LoadingOverlayView: UIView {
 
     func begin() {
         if currentProcessesCount == 0 {
-            UIApplication.shared.beginIgnoringInteractionEvents()
+            isUserInteractionEnabled = false
         }
         currentProcessesCount += 1
 
@@ -99,7 +99,7 @@ class LoadingOverlayView: UIView {
             currentProcessesCount -= 1
         }
         if currentProcessesCount == 0 {
-            UIApplication.shared.endIgnoringInteractionEvents()
+            isUserInteractionEnabled = true
         }
     }
 }
