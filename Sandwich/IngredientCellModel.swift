@@ -6,19 +6,21 @@
 //  Copyright © 2017 JasonCanCode. All rights reserved.
 //
 
+import UIKit
 import UIImageColors
 import RxSwift
+import RxRelay
 
 struct IngredientCellModel {
     let name: String
     let textColor: UIColor
-    let thumbnailImage = Variable<UIImage?>(nil)
+    let thumbnailImage = BehaviorRelay<UIImage?>(value: nil)
     let imagePath: String
 
     init(ingredient: Ingredient) {
         self.name = IngredientCellModel.properName(from: ingredient.name)
         let image = UIImage(named: ingredient.image)!
-        textColor = image.getColors().primaryColor
+        textColor = image.getColors()!.primary
         self.imagePath = ingredient.image
     }
 

@@ -44,7 +44,7 @@ class SandwichViewController: UIViewController {
             UIView.animate(withDuration: kFadeInDuration) {
                 ingView.alpha = 1
             }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 
     fileprivate func ingredientView(withImage image: UIImage) -> UIView {
@@ -95,14 +95,14 @@ class SandwichViewController: UIViewController {
 
 extension SandwichViewController {
     // [2]
-    fileprivate func assembleSandwichOneAtATime(completion: @escaping (Void) -> Void) {
+    fileprivate func assembleSandwichOneAtATime(completion: @escaping () -> Void) {
         let ingredientObs = ingImages.map { self.observableForIngredientAddition(withImage: $0) }
         Observable.from(ingredientObs)
             .concat()
             .subscribe(onCompleted: {
                 completion()
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     fileprivate func observableForIngredientAddition(withImage image: UIImage) -> Observable<Void> {
@@ -146,7 +146,7 @@ extension SandwichViewController {
             .concat()
             .publish()
             .connect()
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -164,7 +164,7 @@ extension SandwichViewController {
 
 extension SandwichViewController {
     // [4]
-    fileprivate func assembleSandwichOneAtATime(with ingredients: [UIImage], completion: @escaping (Void) -> Void) {
+    fileprivate func assembleSandwichOneAtATime(with ingredients: [UIImage], completion: @escaping () -> Void) {
         guard !ingredients.isEmpty else {
             return
         }

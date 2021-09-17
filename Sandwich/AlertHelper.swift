@@ -26,7 +26,7 @@ struct AlertHelper {
                                       title: String?,
                                       message: String?,
                                       dismissLabel: String = closeButtonText,
-                                      completion: @escaping ((Void) -> Void) = {}) {
+                                      completion: @escaping (() -> Void) = {}) {
 
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         // The completion block of a UIAlertController is called when the alert is displayed, not when it is dismissed.
