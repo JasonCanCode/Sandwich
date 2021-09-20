@@ -15,6 +15,9 @@
  The View Model
 -----------------
  */
+import RxSwift
+import RxRelay
+
 class DACLoginViewModel {
     let usernameValidation: Driver<DACInputValidationResult>
     let passwordValidation: Driver<DACInputValidationResult>

@@ -29,7 +29,7 @@ example(of: "create") {
             onCompleted: { print("Completed") },
             onDisposed: { print("Disposed") }
         )
-        .addDisposableTo(disposeBag)
+    .disposed(by: disposeBag)
 }
 
 //: [➡️](@next)
